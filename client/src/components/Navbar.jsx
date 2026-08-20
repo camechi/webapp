@@ -19,6 +19,9 @@ export default function Navbar() {
         {user ? (
           <>
             <span className="navbar-user">Hello, {user.username}</span>
+            <Link to="/about" className="btn btn-ghost">
+              About
+            </Link>
             <button className="btn btn-ghost" onClick={handleLogout}>
               Logout
             </button>
@@ -37,3 +40,8 @@ export default function Navbar() {
     </nav>
   )
 }
+
+Applying
+Ctrl ⌫ Cancel
+
+
