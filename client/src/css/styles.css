@@ -173,7 +173,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -217,6 +217,7 @@
   font-size: 0.9rem;
   line-height: 1.6;
   margin-top: 1rem;
+  text-align: justify;
 }
 
 .tech-list {

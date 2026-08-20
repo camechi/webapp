@@ -25,16 +25,14 @@ export default function About() {
       <section className="about-section">
         <h3>Developer</h3>
         <div className="profile-card">
-          <div className="profile-avatar">C</div>
+          <div className="profile-avatar">CAmechi</div>
           <div className="profile-info">
-            <h3>Camechi</h3>
+            <h3>CHUKWURA Amechi</h3>
             <p>Full-Stack Developer</p>
           </div>
         </div>
         <p className="about-bio">
-          Full-stack developer focused on building clean, secure web
-          applications. Passionate about authentication, user experience, and
-          modern JavaScript tooling.
+           A developer actively building practical full‑stack applications as part of continuous learning. His webapp repository demonstrates competence in modern web development through a complete authentication system that combines a React 18 + Vite frontend with a Node.js/Express backend and MongoDB (via Mongoose). The project implements secure user registration and login using JWT tokens and bcrypt password hashing, protected routes, form validation on both client and server, and a clean, responsive interface—illustrating a solid grasp of end‑to‑end application architecture, security fundamentals, and contemporary JavaScript tooling.
         </p>
       </section>
 
