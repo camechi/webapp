@@ -196,3 +196,55 @@
 .dashboard-actions {
   margin-top: 1.5rem;
 }
+
+/* About Page */
+.about-card {
+  max-width: 560px;
+}
+
+.about-section {
+  margin-bottom: 1.75rem;
+}
+
+.about-section h3 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+}
+
+.about-bio {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #eef0f6;
+  font-size: 0.875rem;
+}
+
+.tech-item:last-child {
+  border-bottom: none;
+}
+
+.tech-category {
+  font-weight: 600;
+  color: #4361ee;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.tech-items {
+  color: #555;
+}
