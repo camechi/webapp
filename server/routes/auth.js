@@ -5,6 +5,8 @@ const auth = require('../middleware/auth');
 
 const router = express.Router();
 
+const VALID_THEMES = ['light', 'grey', 'dark'];
+
 // POST /api/auth/register - Register a new user
 router.post('/register', async (req, res) => {
   try {
@@ -37,7 +39,8 @@ router.post('/register', async (req, res) => {
       user: {
         id: user._id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        theme: user.theme
       }
     });
   } catch (error) {
@@ -73,7 +76,8 @@ router.post('/login', async (req, res) => {
       user: {
         id: user._id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        theme: user.theme
       }
     });
   } catch (error) {
@@ -88,9 +92,37 @@ router.get('/me', auth, async (req, res) => {
     user: {
       id: req.user._id,
       username: req.user.username,
-      email: req.user.email
+      email: req.user.email,
+      theme: req.user.theme
     }
   });
+});
+
+// PUT /api/auth/theme - Update the user's preferred theme (protected)
+router.put('/theme', auth, async (req, res) => {
+  try {
+    const { theme } = req.body;
+
+    if (!VALID_THEMES.includes(theme)) {
+      return res.status(400).json({ message: 'Invalid theme. Use light, grey, or dark.' });
+    }
+
+    req.user.theme = theme;
+    await req.user.save();
+
+    res.json({
+      message: 'Theme updated successfully',
+      user: {
+        id: req.user._id,
+        username: req.user.username,
+        email: req.user.email,
+        theme: req.user.theme
+      }
+    });
+  } catch (error) {
+    console.error('Update theme error:', error);
+    res.status(500).json({ message: 'Server error while updating theme' });
+  }
 });
 
 // POST /api/auth/logout - Logout (client clears token, but we include this for completeness)
