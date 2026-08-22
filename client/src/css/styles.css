@@ -249,3 +249,41 @@
 .tech-items {
   color: #555;
 }
+
+.theme-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--selector-bg);
+  border-radius: 999px;
+}
+
+.theme-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theme-option:hover {
+  background: var(--selector-hover);
+  color: var(--text);
+}
+
+.theme-option.active {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-strong);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.theme-icon { font-size: 0.9rem; line-height: 1; }

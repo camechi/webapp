@@ -32,7 +32,8 @@ export default function About() {
           </div>
         </div>
         <p className="about-bio">
-           A developer actively building practical full‑stack applications as part of continuous learning. His webapp repository demonstrates competence in modern web development through a complete authentication system that combines a React 18 + Vite frontend with a Node.js/Express backend and MongoDB (via Mongoose). The project implements secure user registration and login using JWT tokens and bcrypt password hashing, protected routes, form validation on both client and server, and a clean, responsive interface—illustrating a solid grasp of end‑to‑end application architecture, security fundamentals, and contemporary JavaScript tooling.
+           A developer actively building practical full‑stack applications as part of continuous learning. His webapp repository demonstrates competence in modern web development through a complete authentication system that combines a React 18 + Vite frontend with a Node.js/Express backend and MongoDB (via Mongoose). The project implements secure user registration and login using JWT tokens and bcrypt password hashing, protected routes, form validation on both client and server, and a clean, responsive interface—illustrating a solid grasp of end‑to‑end application architecture, security fundamentals, and contemporary JavaScript tooling.<br/>
+           This web application project was developed using VSCodium on a Windows 11 Pro laptop, running a Debian 13 Windows Subsystem for Linux (WSL2) backend. Note, this project is open source and available on GitHub (https://github.com/camechi/auth-app).
         </p>
       </section>
 

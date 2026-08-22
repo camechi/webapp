@@ -1,3 +1,95 @@
+/* ============================================
+   Theme system — CSS variables
+   Light is the default (applies to guests)
+   ============================================ */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --surface-alt: #f8f9ff;
+  --text: #333333;
+  --text-strong: #1a1a2e;
+  --text-label: #444444;
+  --text-muted: #666666;
+  --text-body: #555555;
+  --border: #e1e5ee;
+  --border-subtle: #eef0f6;
+  --primary: #4361ee;
+  --primary-hover: #3a56d4;
+  --hover-bg: #f0f2ff;
+  --on-primary: #ffffff;
+  --selector-bg: #eef0f6;
+  --selector-hover: #e3e6f0;
+  --selector-active-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --alert-error-bg: #fff0f0;
+  --alert-error-text: #d32f2f;
+  --alert-error-border: #ffcdd2;
+  --alert-success-bg: #f0fff4;
+  --alert-success-text: #2e7d32;
+  --alert-success-border: #c8e6c9;
+}
+
+[data-theme='grey'] {
+  color-scheme: light;
+  --bg: #e2e4e9;
+  --surface: #efeff2;
+  --surface-alt: #e7e8ec;
+  --text: #3a3f47;
+  --text-strong: #2b3038;
+  --text-label: #444a54;
+  --text-muted: #5f6570;
+  --text-body: #555b64;
+  --border: #cdd0d7;
+  --border-subtle: #d9dbe0;
+  --primary: #4f648f;
+  --primary-hover: #43557a;
+  --hover-bg: #e0e2e8;
+  --on-primary: #ffffff;
+  --selector-bg: #dcdde2;
+  --selector-hover: #d0d2d8;
+  --selector-active-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --alert-error-bg: #f6dcdc;
+  --alert-error-text: #b02a2a;
+  --alert-error-border: #e0b3b3;
+  --alert-success-bg: #e2efe5;
+  --alert-success-text: #2e6b35;
+  --alert-success-border: #bcd8c2;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #12141c;
+  --surface: #1c1f2b;
+  --surface-alt: #232734;
+  --text: #d7dae3;
+  --text-strong: #eef0f7;
+  --text-label: #b9becc;
+  --text-muted: #9aa1b2;
+  --text-body: #aab0c0;
+  --border: #333949;
+  --border-subtle: #2a2f3e;
+  --primary: #6d83f2;
+  --primary-hover: #8398f5;
+  --hover-bg: #262c40;
+  --on-primary: #ffffff;
+  --selector-bg: #262a38;
+  --selector-hover: #2e3345;
+  --selector-active-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --alert-error-bg: #3a2226;
+  --alert-error-text: #f28b8b;
+  --alert-error-border: #5a3038;
+  --alert-success-bg: #1f3327;
+  --alert-success-text: #7cc794;
+  --alert-success-border: #2f4f3b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +97,14 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
-  background: #f5f7fa;
-  color: #333;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+  transition: background-color 0.25s ease, 
+            color 0.25s ease, 
+            border-color 0.25s ease, 
+            box-shadow 0.25s ease;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+a { text-decoration: none; color: inherit; }

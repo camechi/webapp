@@ -1,54 +1,55 @@
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Register() {
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
+    e.preventDefault();
+    setError("");
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
-      return
+      setError("Passwords do not match");
+      return;
     }
     if (password.length < 6) {
-      setError('Password must be at least 6 characters')
-      return
+      setError("Password must be at least 6 characters");
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password })
-      })
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
 
-      const data = await res.json()
+      const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message || 'Registration failed')
-        return
+        setError(data.message || "Registration failed");
+        return;
       }
 
-      // Auto-login after registration
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('user', JSON.stringify(data.user))
-      navigate('/dashboard')
+      // Auto-login after registration (also syncs theme state)
+      login(data.token, data.user);
+      navigate("/dashboard");
     } catch {
-      setError('Network error. Please try again.')
+      setError("Network error. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="auth-card">
@@ -109,8 +110,12 @@ export default function Register() {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-          {loading ? 'Creating account...' : 'Sign Up'}
+        <button
+          type="submit"
+          className="btn btn-primary btn-full"
+          disabled={loading}
+        >
+          {loading ? "Creating account..." : "Sign Up"}
         </button>
       </form>
 
@@ -118,5 +123,6 @@ export default function Register() {
         Already have an account? <Link to="/login">Sign in</Link>
       </p>
     </div>
-  )
+  );
 }
+
